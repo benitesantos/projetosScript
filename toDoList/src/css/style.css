@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-image: url('https://cdnm.westwing.com.br/magazine/app/uploads/br/2020/05/15195927/plano-de-fundo-zoom-parede-de-quarto-tumblr-com-p%C3%B4steres-letreiros-neon-espelho-em-forma-de-lua-postais-pinterest-p-a0063.jpg');
+    
+
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(103, 49, 16);
+}
+
+ul {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+}
+
+.header button {
+    position: absolute;
+    right: 18%;
+    margin-top: -30px;
+}
+
+.header i {
+    font-size: 22px;
+}
+
+.to-do {
+    margin-top: 40px;
+    width: 60%;
+}
+
+.textInsert {
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    width: 90%;
+}
+
+.divInsert {
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: 6px 5px 10px 0px grey;
+}
+
+button {
+    width: 10%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.bx-plus {
+    font-size: 30px;
+    margin-left: 10px;
+    background-color: rgb(211, 96, 24);
+    border-radius: 50%;
+    padding: 5px;
+    color: white;
+}
+
+.divLi {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: lightgray;
+    border-radius: 10px;
+    box-shadow: 6px 5px 10px 0px grey;
+    display: flex;
+    align-items: center;
+}
+
+.divLi span {
+    width: 80%;
+    color: rgb(112, 62, 9);
+
+}
+
+.divLi input {
+    width: 10%;
+    outline: none;
+    accent-color: currentcolor;
+}
+
+.divLi i {
+    font-size: 22px;
+    color: rgb(112, 62, 9);
+}
+
+li {
+    list-style: none;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+@media (max-width: 775px) {
+    input {
+        width: 70%;
+    }
+    .divInsert button {
+        width: 30%;
+    }
+    i{
+        font-size: 30px;
+        padding: 0px;
+    }
+    
+    p {
+        font-size: x-large;
+    }
+}

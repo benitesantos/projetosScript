@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+body {
+
+    background-image: url('https://img.wallpapic-br.com/i6826-027-421/medium/pretos-trevas-velocimetro-claro-imagem-de-fundo.jpg');
+    background-size: cover;
+    
+}
+
+
+  .container {
+    text-align: center;
+    padding: 40px;
+    min-height: 100vh;
+    min-width: 100vh;
+    margin-top: 65px;
+    
+    opacity: 0.9;
+  }
+  
+  .page-title {
+    color: #5e09de;
+    margin: 0 20 5px;
+    font-size: 35px;
+  }
+  
+  .page-subtitle {
+    color: #29cb14;
+    margin-top: 5px;
+    font-size: 21px;
+  }
+  
+  .page-logo {
+    width: 200px;
+  }
+  
+  .alura-logo {
+    width: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  input {
+    margin: 12px;
+    padding: 16px 40px;
+    border-radius: 5px;
+    font-size: 30px;
+    text-align: center;
+    opacity: 0.6;
+  }
+  
+  label {
+    color: rgb(100, 69, 253);
+    font-weight: bold;
+    font-size: 20px;
+
+  }
+  
+  button {
+    margin-top: 12px;
+    padding: 8px 18px;
+    border-radius: 10px;
+    background: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    opacity: 0.6;
+  }
+  
+  h2 {
+    color: #090e2d;
+    font-size: 50px;
+    background-color: #9f8eb8;
+    font-style: italic;
+    box-shadow: 0px 10px 25px #2b2f4b;
+    
+  }
+  
