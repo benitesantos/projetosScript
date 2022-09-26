@@ -6,7 +6,6 @@ const imagemMentorTriste = document.querySelector('.mental-triste');
 function Chutar() {
 
     
-    
     const chute = parseInt(document.getElementById('valor').value);
     const elementoResultado = document.getElementById('resultado');
     
@@ -26,14 +25,15 @@ function Chutar() {
         imagemMentorTriste.style.display = 'inline';
         imagemMentor.style.display = 'none';
         imagemMentorFeliz.style.display = 'none';
+        
     } else if(chute < numeroSecreto) {
         elementoResultado.innerHTML = `Errou! o número secreto é maior que ${chute}`;
         imagemMentorTriste.style.display = 'inline';
         imagemMentor.style.display = 'none';
-        imagemMentorFeliz.style.display = 'none';}
-    
-
-    
+        imagemMentorFeliz.style.display = 'none';
+        
+    } 
+   
 }
 
 function Tentar(){

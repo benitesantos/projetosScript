@@ -1,0 +1,123 @@
+body {
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+    background-image: url("https://i.pinimg.com/736x/94/42/e2/9442e2cf95890d19158b59a961b70338--lord-rings-lord-of-the-rings.jpg");
+    background-color: #000000;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    
+    
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .page-title {
+    color: #0b0b0b;
+    box-shadow: 2px 4px 2px 2px;
+    margin: 0 0 5px;
+    font-size: 50px;
+  }
+  
+  .page-subtitle {
+    color: #ffffff;
+    margin-top: 5px;
+  }
+  
+  .page-logo {
+    width: 200px;
+  }
+  
+  .imagens {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+ 
+  .filmes {
+    width: 270px;
+    height: 360px;
+    display: none;
+  }
+
+  .primeiro:hover {
+    
+    transition: 1s;
+    transform: scale(1.8);
+    
+
+  }
+
+ 
+
+  .segundo:hover {
+    
+    transition: 1s;
+    transform: scale(1.8);    
+
+  }
+
+  .terceiro:hover {
+    
+    transition: 1s;
+    transform: scale(1.8);
+    
+  }
+
+ .btn {
+  margin-bottom: 30px;
+  padding: 20px;
+  opacity: 0.7;
+  font-size: 15px;
+ }
+
+span[data-descr]{
+  position: relative;
+  cursor: pointer;
+}
+
+span[data-descr]:hover::after {
+
+  content: attr(data-descr);
+  position: absolute;
+  top: -500px;
+  min-width: 300px;
+  border: 1px #aaaaaa solid;
+  border-radius: 10px;
+  background-color: hsl(60, 100%, 90%, 0.7);
+  padding: 60px;
+  color: #000000;
+  font-size: 15px;
+  z-index: 1;
+  margin-left: -280px;
+  
+}
+
+.texto {
+  background-color: #ffffff;
+  width: 190px;
+  display: none;
+  padding: 8px;
+  
+    
+}
+
+.texto1 {
+  margin-left: 180px;
+
+}
+
+.texto2 {
+  margin-left: 600px;
+  margin-top: -70px;
+  
+}
+
+.texto3 {
+  margin-left: 1050px;
+  margin-top: -70px;
+}
+

@@ -1,0 +1,52 @@
+body {
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-film-festival-berlin-film-festival-grammy-golden-plum-image_23357.jpg");
+    background-color: #000000;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    
+    
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .page-title {
+    color: #881616;
+    text-shadow: 4px 10px 10px  black;
+    
+    margin: 0 0 5px;
+    font-size: 70px;
+  }
+  
+  .page-subtitle {
+    color: #ffffff;
+    margin-top: 5px;
+  }
+ 
+  
+ 
+
+ .btn {
+  margin-bottom: 30px;
+  padding: 20px;
+  opacity: 0.7;
+  font-size: 15px;
+ }
+
+
+.buscar, .pegar {
+  padding: 20px 15px;
+  width: 550px;
+  height: 15px;
+}
+
+.listarFilmes img {
+    width: 270px;
+    height: 360px;
+    margin: 10px;
+}

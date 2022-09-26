@@ -57,6 +57,17 @@ body {
     box-shadow: 6px 4px 1px 1px;
 
   }
+
+  .chutar:hover {
+    transform: scale(1.2);
+    transition: 0.8s;
+  }
+
+  .novamente:hover {
+    transform: scale(1.2);
+    transition: all 0.7s;
+  }
+
   .pergunta {
     width: 200px;
     height: 200px;
@@ -68,7 +79,7 @@ body {
   }
   
   .resultado {
-    color: #55639b;
+    color: white;
     text-align: center;
     margin-top: 36px;
     font-size: 23px;
