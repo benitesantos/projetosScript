@@ -1,0 +1,74 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://img.freepik.com/fotos-premium/cofrinho-com-notas-de-dinheiro-de-dolar-e-lampada-sobre-fundo-azul-conceito-de-economia-de-energia_253401-137.jpg');
+    background-size: cover;
+    backface-visibility: 30;
+    min-height: 100vh;
+
+}
+
+
+.valores-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    font-size: 30px;
+    text-shadow: 7px 0px 5px  rgb(9, 197, 125);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    color: rgb(8, 32, 131);
+}
+
+input {
+    padding: 8px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.tudo {
+   
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: rgba(0, 0, 0,0.2);
+    font-weight: bold;
+    
+
+    
+}
+
+img {
+    width: 250px;
+    display: flex;
+    gap: 8px;
+   
+}
+
+.imagem-menor {
+    width: 100px;
+}
+
+.nota {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    background-color: wheat;
+    
+
+    
+}
+
+.dinheiro {
+    font-size: 40px;
+}
+
