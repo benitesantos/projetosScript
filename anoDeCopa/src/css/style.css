@@ -1,0 +1,74 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url('https://s3-sa-east-1.amazonaws.com/agencia-do-radio/uploads/copa_do_mundo.jpg');
+    min-height: 100vh;
+}
+
+.div-copa {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 1250px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logos {
+    
+    margin-top: 20px;
+    width: 53%;
+    text-align: center;
+}
+
+.input-ano {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    width: 30%;
+    font-size: 20px
+    
+}
+
+img {
+    border: 2px solid black;
+}
+
+
+
+
+.fifa {
+    width: 400px;
+    border: none;
+}
+
+.sem-copa {
+    width: 350px;
+    border: none;
+    margin-right: 350px;
+}
+
+.texto {
+    color: blue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 45px;
+    text-align: center;
+    background-color: white;
+
+}
