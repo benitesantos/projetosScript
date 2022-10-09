@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://mobimg.b-cdn.net/v3/fetch/90/90c5a36fb3ea45fd512e43126a6ed4c8.jpeg');
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}
+
+button {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 10px 25px;
+    background-color: rgb(146, 174, 198);
+
+}
+
+p {
+    text-shadow: 5px 0px 2px 7px;
+    font-size: 18px;
+    font-weight: bold;
+}
