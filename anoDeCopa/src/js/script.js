@@ -27,6 +27,10 @@ let copasDoMundo = [
         logo: '/assets/emblemas/suica1954.png'
     },
     {
+        ano: 1958,
+        logo: '/assets/emblemas/suecia1958.png'
+    },
+    {
         ano: 1962,
         logo: '/assets/emblemas/chile1962.png'
     },
@@ -99,15 +103,20 @@ let copaMostrada = []
 
 
 function verificarAnoDeCopa(event) {
+   
+    
     if (event.key === 'Enter' && Number(input.value) <= 1929) {
         logos.innerHTML = ''
         textoCopa.textContent = `No ano  ${input.value} - Não existia copa do mundo!`
         input.value = ''
+       
     }
 
     if (event.key === 'Enter' && Number(input.value) >= 1930) {
         logos.innerHTML = ''
         let intervalo = Math.abs(input.value - 1930)
+        
+       
         if (intervalo % 4 === 0 && Number(input.value) <= 2022) {
             logos.innerHTML = ''
             textoCopa.textContent = `No ano de ${input.value} teve copa do mundo!`
@@ -128,7 +137,7 @@ function verificarAnoDeCopa(event) {
             texto.classList.add('texto')
             texto.textContent = 'Não foi ano de Copa!'
             textoCopa.textContent = `No ano de ${input.value}`
-            semCopa.src = '/assets/emblemas/nãoCopa.jpeg'
+            semCopa.src = 'https://img.ibxk.com.br/2022/07/12/futebol-12120333910184.jpg'
             logos.append(semCopa, texto)
     
     

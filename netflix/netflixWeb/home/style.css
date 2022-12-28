@@ -1,0 +1,20 @@
+.menu_list {
+    margin-top: 55px;
+    margin-left: 50px;
+    padding-left: 0;
+    padding-top: 7px;
+    list-style: none;
+
+}
+
+
+.menu_list li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.menu_list li a {
+    color: #fff;
+    text-decoration: none;
+}
+

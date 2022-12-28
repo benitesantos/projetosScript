@@ -22,7 +22,9 @@ const digitacao = (texto, contador) => {
 }
 
 
-digitacao('Paulo Ricardo Benites Carvalho dos Santos - desenvolvedor - full stack',0)
+// digitacao('Paulo Ricardo Benites Carvalho dos Santos - desenvolvedor full stack',0)
+
+digitacao('const profissao = "professor" ; - console.log(`Feliz dia do ${profissao}`);- Feliz dia do professor.',0)
 
 body.addEventListener('keydown',(event) => {
 
