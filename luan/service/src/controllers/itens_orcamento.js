@@ -1,13 +1,14 @@
 const pool = require('../database');
 
 const registerBudgetItens = async (req, res) => {
-    const { id_produto,id_orcamento, quantidade, total } = req.body;
+    const { id_produto,id_orcamento, quantidade,total } = req.body;
 
     try {
 
+        
         const querynewBudgetItens = 'INSERT INTO itens_orcamento (id_produto,id_orcamento, quantidade ,total) values ($1, $2, $3, $4 ) returning *';
 
-        const newBudgetItens = await pool.query(querynewBudgetItens, [id_produto,id_orcamento, quantidade, total]);
+        const newBudgetItens = await pool.query(querynewBudgetItens, [id_produto,id_orcamento, quantidade, total ]);
 
         return res.status(201).json(newBudgetItens.rows);
 

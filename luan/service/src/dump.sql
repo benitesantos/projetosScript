@@ -58,3 +58,13 @@ select
    itens_orcamento.total
    from produto
    join itens_orcamento on (itens_orcamento.id_produto = produto.id);
+
+   select
+itens_orcamento.quantidade,
+produto.preco,
+itens_orcamento.quantidade *
+produto.preco as total
+from produto
+join itens_orcamento on (itens_orcamento.id_produto = produto.id)
+where itens_orcamento.id_orcamento = 1001;
+
