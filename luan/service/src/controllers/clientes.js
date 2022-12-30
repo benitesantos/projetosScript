@@ -1,7 +1,7 @@
 const pool = require('../database');
 
 const registerClient = async (req, res) => {
-    const { nome, telefone, data_emissao, observacao } = req.body;
+    const { nome, telefone, observacao } = req.body;
 
     try {
         const queryVerifyName = 'SELECT * FROM cliente WHERE nome = $1';
@@ -26,6 +26,7 @@ const registerClient = async (req, res) => {
 };
 
 const readClient = async (req, res) => {
+
     try {
 
         const { rows } = await pool.query('SELECT * FROM cliente');
@@ -36,8 +37,28 @@ const readClient = async (req, res) => {
     }
 }
 
+const readClientById = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+
+        const { rows } = await pool.query('SELECT * FROM cliente WHERE id = $1',[id]);
+
+        const client = rows[0];
+
+        req.user = client
+
+        return res.json(client);
+
+    } catch (error) {
+        return res.status(500).json({ mensagem: 'Erro interno do servidor' });
+    }
+}
+
+
 const updateClient = async (req, res) => {
     const { id } = req.params;
+
     const { nome, telefone, data_emissao, observacao } = req.body;
 
     try {
@@ -73,6 +94,7 @@ const deleteClient = async (req, res) => {
 module.exports = {
     registerClient,
     readClient,
+    readClientById,
     updateClient,
     deleteClient
 }
