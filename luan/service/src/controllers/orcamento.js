@@ -1,13 +1,13 @@
 const pool = require('../database');
 
 const registerBudget = async (req, res) => {
-    const { id_cliente, data_emissao, total } = req.body;
+    const { id_cliente, data_emissao } = req.body;
 
     try {
 
-        const querynewBudget = 'INSERT INTO orcamento (id_cliente,total) values ($1, $2 ) returning *';
+        const querynewBudget = 'INSERT INTO orcamento (id_cliente) values ($1) returning *';
 
-        const newBudget = await pool.query(querynewBudget, [id_cliente, total]);
+        const newBudget = await pool.query(querynewBudget, [id_cliente]);
 
         return res.status(201).json(newBudget.rows);
 
@@ -24,7 +24,22 @@ const readBudjet = async (req, res) => {
 
     try {
 
-        const queryReadBudjet = 'SELECT cliente.nome, cliente.telefone, orcamento.id as numero_orcamento, orcamento.total FROM cliente JOIN orcamento on (orcamento.id_cliente = cliente.id) WHERE cliente.id = $1';
+        const queryReadBudjet = `
+        select orcamento.id,
+        c.nome,
+        c.telefone,
+        sum(itens_orcamento.quantidade * produto.preco) as total_do_orcamento
+        from itens_orcamento
+        join orcamento on (orcamento.id = itens_orcamento.id_orcamento)
+        join produto on (produto.id = itens_orcamento.id_produto)
+        left join
+            (select orcamento.id, cliente.nome
+             ,cliente.telefone from orcamento
+            join cliente on (orcamento.id_cliente = cliente.id)) c
+         on (c.id = itens_orcamento.id_orcamento)
+         where orcamento.id = $1
+        group by orcamento.id, c.nome, c.telefone
+        `;
 
         const { rows } = await pool.query(queryReadBudjet, [id]);
 

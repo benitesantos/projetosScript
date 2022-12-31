@@ -18,15 +18,13 @@ create table itens_orcamento (
   id serial primary key,
   id_produto integer references produto(id),
   id_orcamento integer references orcamento(id),
-  quantidade integer,
-  total numeric 
+  quantidade integer, 
 );
 
 create table orcamento (
   id serial primary key,
   id_cliente integer references cliente(id),
   data_emissao date default now(),
-  total numeric
 );
 
 
@@ -67,4 +65,29 @@ produto.preco as total
 from produto
 join itens_orcamento on (itens_orcamento.id_produto = produto.id)
 where itens_orcamento.id_orcamento = 1001;
+
+select
+   produto.id as codigo,
+   produto.descricao,
+   itens_orcamento.quantidade,
+   produto.preco,
+   (itens_orcamento.quantidade * produto.preco) as total
+   from produto
+   join itens_orcamento on (itens_orcamento.id_produto = produto.id);
+
+
+   select orcamento.id,
+	c.nome,
+    c.telefone,
+	sum(itens_orcamento.quantidade * produto.preco) from itens_orcamento
+    join orcamento on (orcamento.id = itens_orcamento.id_orcamento)
+    join produto on (produto.id = itens_orcamento.id_produto)
+    left join
+    	(select orcamento.id, cliente.nome
+         ,cliente.telefone from orcamento
+        join cliente on (orcamento.id_cliente = cliente.id)) c
+     on (c.id = itens_orcamento.id_orcamento)
+     where orcamento.id = 1001
+    group by orcamento.id, c.nome, c.telefone
+  ;
 

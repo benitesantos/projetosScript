@@ -1,14 +1,14 @@
 const pool = require('../database');
 
 const registerBudgetItens = async (req, res) => {
-    const { id_produto,id_orcamento, quantidade,total } = req.body;
+    const { id_produto,id_orcamento, quantidade } = req.body;
 
     try {
 
         
-        const querynewBudgetItens = 'INSERT INTO itens_orcamento (id_produto,id_orcamento, quantidade ,total) values ($1, $2, $3, $4 ) returning *';
+        const querynewBudgetItens = 'INSERT INTO itens_orcamento (id_produto,id_orcamento, quantidade) values ($1, $2, $3) returning *';
 
-        const newBudgetItens = await pool.query(querynewBudgetItens, [id_produto,id_orcamento, quantidade, total ]);
+        const newBudgetItens = await pool.query(querynewBudgetItens, [id_produto,id_orcamento, quantidade ]);
 
         return res.status(201).json(newBudgetItens.rows);
 
@@ -30,7 +30,8 @@ const readBudjetItens = async (req, res) => {
         produto.descricao,
         itens_orcamento.quantidade,
         produto.preco,
-        itens_orcamento.total
+        itens_orcamento.quantidade *
+        produto.preco as total
         FROM produto
         JOIN itens_orcamento on (itens_orcamento.id_produto = produto.id)
         WHERE itens_orcamento.id_orcamento = $1`
