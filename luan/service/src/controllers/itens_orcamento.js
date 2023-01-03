@@ -45,7 +45,26 @@ const readBudjetItens = async (req, res) => {
     }
 }
 
+const deleteBudjetItens = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+
+        const queryDeleteBudjetItens = 'DELETE FROM itens_orcamento WHERE id = $1';
+
+        await pool.query(queryDeleteBudjetItens, [id]);
+
+        return res.send();
+
+    } catch (error) {
+        console.log(error.mensagem)
+        return res.status(500).json({ mensagem: 'Erro interno do servidor.' });
+    }
+}
+
+
 module.exports = {
     registerBudgetItens,
-    readBudjetItens
+    readBudjetItens,
+    deleteBudjetItens
 }

@@ -16,15 +16,18 @@ create table produto (
 
 create table itens_orcamento (
   id serial primary key,
-  id_produto integer references produto(id),
-  id_orcamento integer references orcamento(id),
-  quantidade integer, 
+  id_produto integer references produto(id)
+  on delete cascade,
+  id_orcamento integer references orcamento(id)
+  on delete cascade,
+  quantidade integer
 );
 
 create table orcamento (
   id serial primary key,
-  id_cliente integer references cliente(id),
-  data_emissao date default now(),
+  id_cliente integer references cliente(id)
+  on delete cascade,
+  data_emissao date default now()
 );
 
 

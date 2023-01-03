@@ -2,7 +2,7 @@ const express = require('express');
 const {registerClient, updateClient, deleteClient, readClient, readClientById} = require('./controllers/clientes.js');
 const { registerProduct, readProduct, updateProduct, deleteProduct, readProductById } = require('./controllers/produto.js');
 const { registerBudget, readBudjet, deleteBudjet } = require('./controllers/orcamento.js');
-const { registerBudgetItens, readBudjetItens } = require('./controllers/itens_orcamento.js');
+const { registerBudgetItens, readBudjetItens, deleteBudjetItens } = require('./controllers/itens_orcamento.js');
 
 const routes = express();
 
@@ -25,6 +25,7 @@ routes.delete('/orcamento/:id',deleteBudjet);
 
 routes.post('/itens_orcamento',registerBudgetItens);
 routes.get('/itens_orcamento/:id',readBudjetItens);
+routes.delete('/itens_orcamento/:id', deleteBudjetItens);
 
 module.exports = routes;
 

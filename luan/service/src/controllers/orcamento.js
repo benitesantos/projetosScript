@@ -26,6 +26,7 @@ const readBudjet = async (req, res) => {
 
         const queryReadBudjet = `
         select orcamento.id,
+        orcamento.data_emissao,
         c.nome,
         c.telefone,
         sum(itens_orcamento.quantidade * produto.preco) as total_do_orcamento

@@ -87,6 +87,7 @@ const deleteClient = async (req, res) => {
         return res.send();
 
     } catch (error) {
+        console.log(error)
         return res.status(500).json({ mensagem: 'Erro interno do servidor.' });
     }
 };
