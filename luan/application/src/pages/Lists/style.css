@@ -1,0 +1,26 @@
+.container-list {
+    display: flex;
+    border: 1px solid blue;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.container-client {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    height: 120px;
+    padding: 10px;
+}
+
+.container-list button {
+    width: 90px;
+    height: 40px;
+}
+
+.icon {
+    width: 30px;
+}

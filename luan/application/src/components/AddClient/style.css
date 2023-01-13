@@ -1,0 +1,43 @@
+.window {
+    width: 400px;
+    height: 400px;
+    border: 2px solid green;
+    background-color: aliceblue;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-campo {
+    width: 300px;
+    height: 30px;
+}
+
+.span-cadastro {
+    display: flex;
+    justify-content: center;
+}
+
+.register-button {
+    margin-left: 110px;
+}
+
+.clean-button {
+    width: 80px;
+    height: 40px;
+    margin-top: -10px;
+    margin-left: 250px;
+}
+
+.btn-close {
+    margin-top: -50px;
+    margin-left: -250px;
+}

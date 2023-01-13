@@ -1,5 +1,5 @@
 import './style.css';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function Signin() {
@@ -7,11 +7,11 @@ function Signin() {
     const navigate = useNavigate()
 
 
-    function handleSubmit (e) {
+    function handleSubmit(e) {
         e.preventDefault();
-    
-        navigate('/main')
-    
+
+        navigate('/lists')
+
     }
     return (
         <div className="container">
