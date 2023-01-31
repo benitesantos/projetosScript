@@ -1,10 +1,9 @@
 
-.container-select-client {
+.container-select-product {
     width: 1100px;
     height: 550px;
     border: 1px solid black;
     background-color: aliceblue;
-    overflow: auto;
 }
 
 .header {
@@ -29,7 +28,7 @@
     margin-left: 35px;
 }
 
-.header-table-client {
+.header-table-product {
     display: flex;
     margin-left: 40px;
     margin-top: 15px;
@@ -39,7 +38,7 @@
 }
 
 
-.content-clients {
+.content-products {
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -47,40 +46,33 @@
     gap: 20px
 }
 
-.content-client {
+.content-product {
     display: flex;
     gap: 35px;
     
 }
 
-.content-client span, .header-table-client span {
+.content-product span, .header-table-product span {
     min-width: 100px;
 }
 
-.content-client span.client-id, .header-table-client span.span-id {
+.content-product span.product-id, .header-table-product span.span-id {
     min-width: auto;
     width: 27px;
 }
 
-.content-client span.client-nome, .header-table-client span.span-nome {
+.content-product span.product-descricao, .header-table-product span.span-descricao {
     min-width: auto;
     width: 180px;
 }
 
-.content-client span.client-observacao{
-    min-width: auto;
-    width: 280px;
-}
 
 
-.user-actions {
+.product-marca {
     display: flex;
-    gap: 8px;
-}
-
- .actions {
-    width: 25px;
-    cursor: pointer;
+    align-self: center;
+    justify-self: center;
+    
 }
 
 

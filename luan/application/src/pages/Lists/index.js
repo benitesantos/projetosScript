@@ -3,15 +3,22 @@ import api from '../../services/api';
 import { useState } from 'react';
 import AddClient from '../../components/AddClient';
 import SelectClient from '../../components/SelectClient';
+import AddProduct from '../../components/AddProduct';
+import SelectProduct from '../../components/SelectProduct';
+import RegisterBudjet from '../../components/Budjet';
 import Modal from '../../components/Modal';
 import icone_register from '../../images/icone_cadastrar.png';
 import icone_find from '../../images/icone_buscar.png';
 import iconeRegisterProduct from '../../images/icone_cadastrar_produto.png';
+import iconeRegisterOs from '../../images/icone_cadastrar_os.png';
 
 function Lists() {
 
     const [showModal, setShowModal] = useState(false);
     const [modalType, setModalType] = useState(null);
+
+    
+
 
 
     async function handleSubmit(e) {
@@ -30,6 +37,7 @@ function Lists() {
 
     }
 
+   
     function handleModalAddClient() {
         setModalType('add-client');
         setShowModal(true);
@@ -40,7 +48,22 @@ function Lists() {
         setShowModal(true);
     }
 
+    
 
+    function handleModalAddProduct() {
+        setModalType('add-product');
+        setShowModal(true);
+    }
+
+    function handleModalSelectProduct() {
+        setModalType('select-product');
+        setShowModal(true);
+    }
+
+    function handleModalAddBudjet() {
+        setModalType('add-budjet');
+        setShowModal(true);
+    }
 
     return (
         <div className="container-list">
@@ -76,26 +99,67 @@ function Lists() {
                             setShowModal={setShowModal}
                         />
                     </Modal>
-                )}               
+                )}
             </div>
 
 
             <div className='container-client'>
                 <h3>Cadastrar Produto</h3>
                 <form onSubmit={handleSubmit}>
-                    <button onClick={handleModalAddClient}>
+                    <button onClick={handleModalAddProduct}>
                         <img className='icon' src={iconeRegisterProduct} alt='icone' />
                     </button>
-                </form>               
+                </form>
+                {showModal && modalType === 'add-product' && (
+                    <Modal>
+                        <AddProduct
+                            setModalType={setModalType}
+                            setShowModal={setShowModal}
+                        />
+                    </Modal>
+                )}
             </div>
 
             <div className='container-client'>
                 <h3>Buscar Produto</h3>
                 <form onSubmit={handleSubmit}>
-                    <button onClick={handleModalAddClient}>
-                        <img className='icon' src={icone_find} alt='icone' />
+                    <button onClick={handleModalSelectProduct}>
+                        <img
+                            className='icon'
+                            src={icone_find}
+                            alt='icone'
+                        />
                     </button>
-                </form>               
+                </form>
+                {showModal && modalType === 'select-product' && (
+                    <Modal>
+                        <SelectProduct
+                            setModalType={setModalType}
+                            setShowModal={setShowModal}
+                        />
+                    </Modal>
+                )}
+            </div>
+
+            <div className='container-client'>
+                <h3>Cadastrar Orçamento</h3>
+                <form onSubmit={handleSubmit}>
+                    <button onClick={handleModalAddBudjet}>
+                        <img
+                            className='icon'
+                            src={iconeRegisterOs}
+                            alt='icone'
+                        />
+                    </button>
+                </form>
+                {showModal && modalType === 'add-budjet' && (
+                    <Modal>
+                        <RegisterBudjet
+                            setModalType={setModalType}
+                            setShowModal={setShowModal}
+                        />
+                    </Modal>
+                )}
             </div>
 
         </div>

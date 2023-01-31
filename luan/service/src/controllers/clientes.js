@@ -4,7 +4,7 @@ const registerClient = async (req, res) => {
     const { nome, telefone, observacao } = req.body;
 
     try {
-        const queryVerifyName = 'SELECT * FROM cliente WHERE nome = $1';
+        const queryVerifyName = 'SELECT * FROM clientes WHERE nome = $1';
 
         const verifyName = await pool.query(queryVerifyName, [nome]);
 
@@ -12,7 +12,7 @@ const registerClient = async (req, res) => {
             return res.status(400).json({ mensagem: 'Já existe um cliente cadastrado com esse nome.' })
         }
 
-        const queryNewClient = 'INSERT INTO cliente (nome, telefone, observacao) values ($1, $2, $3) returning *';
+        const queryNewClient = 'INSERT INTO clientes (nome, telefone, observacao) values ($1, $2, $3) returning *';
 
         const newClient = await pool.query(queryNewClient, [nome, telefone, observacao]);
 
@@ -29,7 +29,7 @@ const readClient = async (req, res) => {
 
     try {
 
-        const { rows } = await pool.query('SELECT * FROM cliente');
+        const { rows } = await pool.query('SELECT * FROM clientes order by id');
         return res.json(rows);
 
     } catch (error) {
@@ -42,7 +42,7 @@ const readClientById = async (req, res) => {
 
     try {
 
-        const { rows } = await pool.query('SELECT * FROM cliente WHERE id = $1',[id]);
+        const { rows } = await pool.query('SELECT * FROM clientes WHERE id = $1',[id]);
 
         const client = rows[0];
 
@@ -59,11 +59,11 @@ const readClientById = async (req, res) => {
 const updateClient = async (req, res) => {
     const { id } = req.params;
 
-    const { nome, telefone, data_emissao, observacao } = req.body;
+    const { nome, telefone , observacao } = req.body;
 
     try {
 
-        const queryUpdateClient = 'UPDATE cliente set nome = $1, telefone = $2, observacao = $3 WHERE id = $4';
+        const queryUpdateClient = 'UPDATE clientes set nome = $1, telefone = $2, observacao = $3 WHERE id = $4';
 
         await pool.query(queryUpdateClient, [nome, telefone, observacao, id]);
 
@@ -80,7 +80,7 @@ const deleteClient = async (req, res) => {
 
     try {
 
-        const queryDeleteClient = 'DELETE FROM cliente WHERE id = $1';
+        const queryDeleteClient = 'DELETE FROM clientes WHERE id = $1';
 
         await pool.query(queryDeleteClient, [id]);
 

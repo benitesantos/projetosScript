@@ -1,4 +1,4 @@
-create table cliente (
+create table clientes (
   id serial primary key,
   nome text not null,
   telefone text,
@@ -6,38 +6,41 @@ create table cliente (
 );
 
 
-create table produto (
+create table produtos (
 	id serial primary key,
   descricao text,
   marca text,
+  estoque integer,
   preco numeric 
  
 );
 
 create table itens_orcamento (
   id serial primary key,
-  id_produto integer references produto(id)
+  id_produto integer references produtos(id)
   on delete cascade,
-  id_orcamento integer references orcamento(id)
+  id_orcamento integer references orcamentos(id)
   on delete cascade,
   quantidade integer
 );
 
-create table orcamento (
+create table orcamentos (
   id serial primary key,
-  id_cliente integer references cliente(id)
+  id_cliente integer references clientes(id)
   on delete cascade,
   data_emissao date default now()
 );
 
 
-alter table orcamento alter column data_emissao set default CURRENT_DATE;
 
-select * from cliente;
 
-delete from cliente;
 
-select pg_get_serial_sequence('cliente','id');
+
+alter table orcamentos alter column data_emissao set default CURRENT_DATE;
+
+
+
+select pg_get_serial_sequence('orcametnos','id');
 
 alter sequence public.cliente_id_seq restart with 1001;
 

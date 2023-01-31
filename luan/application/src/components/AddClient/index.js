@@ -1,6 +1,8 @@
 import './style.css';
 import api from '../../services/api';
 import { useState } from 'react';
+import iconClose from '../../images/icone_fechar.png';
+
 
 
 export default function AddClient({
@@ -32,7 +34,8 @@ export default function AddClient({
                 telefone: formAddClient.telefone,
                 observacao: formAddClient.observacao
             });
-            
+
+            setShowModal(false);
 
             console.log(response.data)
 
@@ -51,7 +54,10 @@ export default function AddClient({
     return (
         <div className='window'>
             <form className='form-cadastro' onSubmit={handleSubmit}>
-                <h1>Adicionar Cliente</h1>
+            <div className='header'>
+                <h2>Adicionar Cliente</h2>
+                <img className='icon-close' src={iconClose} alt='icon-close' onClick={handleCloseModalAddClient} />
+            </div>
                 <div className='form-container'>
                     <label>
                         <span className='span-cadastro'>Nome</span>
@@ -67,8 +73,8 @@ export default function AddClient({
                     </label>
                     <button className='register-button' type='submit'>Cadastrar</button>
                 </div>
-                    <button className='btn-close' onClick={handleCloseModalAddClient}>Fechar</button>
-                    <div><input className='clean-button' type="reset" value="Limpar"/></div>
+                    
+                    {/* <div><input className='clean-button' type="reset" value="Limpar"/></div> */}
             </form>
         </div>
     );

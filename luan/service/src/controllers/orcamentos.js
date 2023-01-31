@@ -5,7 +5,7 @@ const registerBudget = async (req, res) => {
 
     try {
 
-        const querynewBudget = 'INSERT INTO orcamento (id_cliente) values ($1) returning *';
+        const querynewBudget = 'INSERT INTO orcamentos (id_cliente) values ($1) returning *';
 
         const newBudget = await pool.query(querynewBudget, [id_cliente]);
 
@@ -25,21 +25,21 @@ const readBudjet = async (req, res) => {
     try {
 
         const queryReadBudjet = `
-        select orcamento.id,
-        orcamento.data_emissao,
+        select orcamentos.id,
+        orcamentos.data_emissao,
         c.nome,
         c.telefone,
-        sum(itens_orcamento.quantidade * produto.preco) as total_do_orcamento
+        sum(itens_orcamento.quantidade * produtos.preco) as total_do_orcamento
         from itens_orcamento
-        join orcamento on (orcamento.id = itens_orcamento.id_orcamento)
-        join produto on (produto.id = itens_orcamento.id_produto)
+        join orcamentos on (orcamentos.id = itens_orcamento.id_orcamento)
+        join produtos on (produtos.id = itens_orcamento.id_produto)
         left join
-            (select orcamento.id, cliente.nome
-             ,cliente.telefone from orcamento
-            join cliente on (orcamento.id_cliente = cliente.id)) c
+            (select orcamentos.id, clientes.nome
+             ,clientes.telefone from orcamentos
+            join clientes on (orcamentos.id_cliente = clientes.id)) c
          on (c.id = itens_orcamento.id_orcamento)
-         where orcamento.id = $1
-        group by orcamento.id, c.nome, c.telefone
+         where orcamentos.id = $1
+        group by orcamentos.id, c.nome, c.telefone
         `;
 
         const { rows } = await pool.query(queryReadBudjet, [id]);
@@ -56,7 +56,7 @@ const deleteBudjet = async (req, res) => {
 
     try {
 
-        const queryDeleteBudjet = 'DELETE FROM orcamento WHERE id = $1';
+        const queryDeleteBudjet = 'DELETE FROM orcamentos WHERE id = $1';
 
         await pool.query(queryDeleteBudjet, [id]);
 

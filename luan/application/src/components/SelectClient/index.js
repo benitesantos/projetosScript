@@ -1,15 +1,36 @@
 import './style.css';
 import api from '../../services/api';
 import { useState, useEffect } from 'react';
-import iconClose from '../../images/icone_fechar.png'
+import Modal from '../../components/Modal';
+import EditClient from '../../components/EditClient';
+import Delete from '../../components/Delete';
+import iconClose from '../../images/icone_fechar.png';
+import icone_edit from '../../images/icone_editar.png';
+import icone_trash from '../../images/icone_deletar.png';
 
 export default function SelectClient({
     setModalType,
     setShowModal,
 }) {
 
+
+    const [showModalEdit, setShowModalEdit] = useState(false);
+    const [modalTypeEdit, setModalTypeEdit] = useState(null);
+    const [clienteId, setClienteId] = useState(null);
+    const [modalDelete, setModalDelete] = useState(undefined);
+
     const [listClientOriginal, setListClientOriginal] = useState([]);
     const [listClient, setListClient] = useState([]);
+
+    const [formEditClient, setFormEditClient] = useState({
+        nome: '',
+        telefone: '',
+        observacao: '',
+    });
+
+
+
+
 
     async function loadClients() {
 
@@ -57,6 +78,16 @@ export default function SelectClient({
         setShowModal(false);
     }
 
+    function handleModalEditClient(cliente) {
+
+        setFormEditClient(cliente);
+
+        setClienteId(cliente.id);
+
+        setModalTypeEdit('edit-client');
+        setShowModalEdit(true);
+    }
+
     useEffect(() => {
         loadClients();
     }, []);
@@ -86,6 +117,43 @@ export default function SelectClient({
                         <span className='client-nome'>{client.nome}</span>
                         <span className='client-telefone'>{client.telefone}</span>
                         <span className='client-observacao'>{client.observacao}</span>
+                        <div className='user-actions'>
+                            <img
+                                className='actions'
+                                src={icone_edit}
+                                alt='icon-edit'
+                                onClick={() => handleModalEditClient(client)}
+                            />
+                            <img
+                                className='actions'
+                                src={icone_trash}
+                                alt='icon-trash'
+                                onClick={() => setModalDelete(index)}
+                            />
+                        </div>
+                        {showModalEdit && modalTypeEdit === 'edit-client' && (
+                            <Modal>
+                                <EditClient
+                                    clienteId={clienteId}
+                                    setModalType={setModalType}
+                                    setShowModal={setShowModal}
+                                    formEditClient={formEditClient}
+                                    setFormEditClient={setFormEditClient}
+                                    loadClients={loadClients}
+                                    listClient={listClient}
+                                    setListClient={setListClient}
+                                />
+                            </Modal>
+                        )}
+                        {modalDelete === index && (
+                            <Modal>
+                                <Delete
+                                loadClients={loadClients}
+                                clienteId = {client.id}
+                                setModalDelete={setModalDelete}
+                            />
+                            </Modal>
+                        )}
                     </li>
                 ))}
             </ul>
